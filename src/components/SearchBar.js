@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+import styled from "styled-components";
 import { Searchbar } from "react-native-paper";
+
+const SearchContainer = styled(View)`
+  padding: ${(props) => props.theme.space[3]};
+`;
 
 export const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,18 +13,12 @@ export const SearchBar = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
-    <View style={styles.search}>
+    <SearchContainer>
       <Searchbar
         placeholder="Search"
         onChangeText={onChangeSearch}
         value={searchQuery}
       />
-    </View>
+    </SearchContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  search: {
-    padding: 20,
-  },
-});
