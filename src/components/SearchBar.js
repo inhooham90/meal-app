@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
 
 const SearchContainer = styled(View)`
