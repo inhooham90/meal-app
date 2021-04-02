@@ -1,39 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
 import styled from "styled-components";
 import { SearchBar } from "../../../components/SearchBar";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { SafeArea } from "../../../components/util/safe-area.component";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
-const RestaurantScreenSafeAreaView = styled(SafeAreaView)`
-  flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`;
-
-const RestaurantList = styled(View)`
-  flex: 1;
-  padding: ${(props) => props.theme.space[3]};
-`;
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: (props) => props.theme.space[3],
+  },
+})``;
 
 export const RestaurantScreen = () => {
+  const restaurantContext = useContext(RestaurantsContext);
+
+  console.log(restaurantContext);
   return (
-    <RestaurantScreenSafeAreaView>
+    <SafeArea>
       <SearchBar />
-      <FlatList
-        data={[
-          { name: 1 },
-          { name: 2 },
-          { name: 3 },
-          { name: 4 },
-          { name: 5 },
-          { name: 6 },
-        ]}
+      <RestaurantList
+        data={restaurantContext.restaurants}
         renderItem={() => <RestaurantInfoCard />}
-        keyExtractor={(item) => item.name}
-        contentContainerStyle={{ padding: 16 }}
+        keyExtractor={(item) => `${item.name}`}
       />
-      {/* <RestaurantList>
-        <RestaurantInfoCard />
-      </RestaurantList> */}
-    </RestaurantScreenSafeAreaView>
+    </SafeArea>
   );
 };
