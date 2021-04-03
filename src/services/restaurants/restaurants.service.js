@@ -7,12 +7,11 @@ export const restaurantRequest = (location = "43.653225,-79.383186") => {
     if (!mock) {
       reject("not found");
     }
-
     resolve(mock);
   });
 };
 
-const restaurantTransform = ({ results = [] }) => {
+export const restaurantsTransform = ({ results = [] }) => {
   // const newResult = camelize(results.length);
   const mappedResults = results.map((restaurant) => {
     return {
@@ -24,12 +23,3 @@ const restaurantTransform = ({ results = [] }) => {
 
   return camelize(mappedResults);
 };
-
-restaurantRequest()
-  .then(restaurantTransform)
-  .then((transformedResponse) => {
-    // console.log(transformedResponse);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
