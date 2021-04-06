@@ -14,11 +14,8 @@ import { theme } from "./src/infrastructure/theme";
 import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { SafeArea } from "./src/components/util/safe-area.component";
 
-import { restaurantRequest } from "./src/services/restaurants/restaurants.service";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/locations/location.context";
-
-restaurantRequest();
 
 function SettingsScreen() {
   return (
