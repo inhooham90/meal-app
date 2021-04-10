@@ -1,6 +1,5 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
-import { Image } from "react-native";
 
 import stars from "../../../../assets/stars";
 import openSign from "../../../../assets/openSign";
@@ -27,6 +26,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = false,
     rating = 4,
     isClosedTemporarily = false,
+    placeId,
   } = restaurant;
 
   const ratingArr = Array.from(new Array(Math.floor(rating)));
@@ -48,8 +48,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Title>{name}</Title>
         <Section>
           <Stars>
-            {ratingArr.map((star, idx) => (
-              <SvgXml key={idx} width={20} height={20} xml={stars} />
+            {ratingArr.map((_, i) => (
+              <SvgXml
+                key={`${placeId}-${i}`}
+                width={20}
+                height={20}
+                xml={stars}
+              />
             ))}
           </Stars>
           {renderOpenSign()}
