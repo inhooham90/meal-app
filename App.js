@@ -7,7 +7,6 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import { theme } from "./src/infrastructure/theme";
-import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/locations/location.context";

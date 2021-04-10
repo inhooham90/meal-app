@@ -10,7 +10,7 @@ import { RestaurantsContext } from "../../../services/restaurants/restaurants.co
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
-    padding: (props) => props.theme.space[3],
+    padding: 16,
   },
 })``;
 

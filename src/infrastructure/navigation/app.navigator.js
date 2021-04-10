@@ -38,7 +38,7 @@ const screenOptions = ({ route }) => ({
   },
 });
 
-export const AppNavigator = ({ rest }) => {
+export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
