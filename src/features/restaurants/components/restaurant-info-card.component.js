@@ -14,6 +14,7 @@ import {
   ClosedText,
   ImageHolder,
 } from "./restaurant-info-card.styles";
+import { Favorite } from "../../../components/favorite/favorite.component";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -43,6 +44,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard>
+      <Favorite restaurant={restaurant} />
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
