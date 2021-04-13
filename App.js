@@ -68,7 +68,7 @@ export default function App() {
           <FavoritesContextProvider>
             <LocationContextProvider>
               <RestaurantsContextProvider>
-                <Navigation />
+                <Navigation isAuthed={isAuthed} />
               </RestaurantsContextProvider>
             </LocationContextProvider>
           </FavoritesContextProvider>

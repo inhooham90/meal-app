@@ -13,8 +13,8 @@ export const AuthContextProvider = ({ children }) => {
   const onLogin = (email, password) => {
     setIsLoading(true);
     loginRequest(email, password)
-      .then((user) => {
-        setUser(user);
+      .then((u) => {
+        setUser(u);
         setIsLoading(false);
       })
       .catch((e) => {
@@ -22,9 +22,12 @@ export const AuthContextProvider = ({ children }) => {
         setError(e);
       });
   };
+
+  console.log(user);
   return (
     <AuthContext.Provider
       value={{
+        isAuthed: !!user,
         user,
         isLoading,
         error,
