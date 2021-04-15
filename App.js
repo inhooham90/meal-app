@@ -30,20 +30,7 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
-  const [isAuthed, setIsAuthed] = useState(false);
-
-  useEffect(() => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword("james@gmail.com", "password123")
-      .then((user) => {
-        console.log(user);
-        setIsAuthed(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+  console.log(firebase.auth());
 
   let [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -57,10 +44,6 @@ export default function App() {
     return null;
   }
 
-  if (!isAuthed) {
-    return null;
-  }
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -68,7 +51,7 @@ export default function App() {
           <FavoritesContextProvider>
             <LocationContextProvider>
               <RestaurantsContextProvider>
-                <Navigation isAuthed={isAuthed} />
+                <Navigation />
               </RestaurantsContextProvider>
             </LocationContextProvider>
           </FavoritesContextProvider>
